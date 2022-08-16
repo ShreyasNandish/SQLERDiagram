@@ -1,0 +1,25 @@
+1.create database AddressBookService;
+2.use AddressBookService;
+3.create table AddressBookTable(id int auto_increment, firstName varchar(20), lastName varchar(20), address varchar(20), city varchar(10),state varchar(10), zip varchar(6), phone_number varchar(10), email varchar(40), primary key(id));
+4.desc AddressBookTable;
+5.insert into AddressBookTable(firstName, lastName, address, city, state, zip, phone_number, email) values
+6.("Shreyas","Nandish","#3 dhannalakshmi","Bangalore","Karnataka","560097","9632374227","shreyasnandish@gmail.com"),
+7insert into AddressBookTable(firstName, lastName, address, city, state, zip, phone_number, email) values
+8.("Shrey","Nand","vidyaranyapura","Bangalore","Karnataka","560098","9632374228","shreyasnandi@gmail.com"),
+9.select * from AddressBookTable;
+10.update AddressBookTable set city="Mangalore" where lastName="Nandish";
+11.select * from AddressBookTable;
+12.delete from AddressBookTable where firstName="Shreyas";
+13.select * from AddressBookTable;
+13.select * from AddressBookTable where city="Bangalore";
+14.select * from AddressBookTable where state="Karnataka";
+15.select count(firstName) from AddressBookTable where city="Bangalore";
+16.select count(firstName) from AddressBookTable where city="Bangalore" or state="Karnataka";
+17.select * from AddressBookTable;
+18.select * from AddressBookTable where city="Bangalore" order by firstName ;
+19.alter table AddressBookTable add addressBook_name varchar(20);
+20.alter table AddressBookTable add booktype varchar(20);
+21.select * from AddressBookTable;
+22.update AddressBookTable set addressBook_name="RhymesBook", booktype="kids" where firstName="Shreyas"; 
+23.update AddressBookTable set addressBook_name="CarsBook", booktype="Ride"  where firstName="Shrey"; 
+24.select count(*) from AddressBookTable where booktype="Ride";
