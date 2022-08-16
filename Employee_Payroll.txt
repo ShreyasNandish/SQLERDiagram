@@ -1,0 +1,51 @@
+1.show databases;
+2.create database sample;
+3.use sample;
+4.show tables;
+5.create table employee_payroll(id int auto_increment, name varchar(40), salary double, start_date date, primary key(id));
+6.desc employee_payroll;
+7.insert into employee_payroll(name, salary, start_date) values
+('Bill', 100000.00, '2018-01-03'),
+('Mark', 200000.00, '2019-11-13'),
+('Charlie', 300000.00, '2020-5-21');
+8.select * from employee_payroll order by name desc;
+9.select * from employee_payroll where name='Bill' or salary >= 300000.00;
+10.select min(salary) from employee_payroll;
+11.select count(salary) from employee_payroll;
+12.select sum(salary) as sum from employee_payroll;
+13.select * from employee_payroll where id in (1,3);
+14.select * from employee_payroll where id between 1 and 3;
+15.select * from employee_payroll limit 2; 
+16.select * from employee_payroll WHERE name LIKE '____%';
+17.update employee_payroll set name = 'Amit' where name = 'Bill';
+18.select * from employee_payroll;
+
+19.delete from employee_payroll where name='Amit';
+20.alter table employee_payroll add column gender varchar(6) after name;
+21.alter table employee_payroll modify column gender varchar(1);
+22.desc employee_payroll;
+
+23.create table employee_department 
+(department_id int auto_increment, 
+department_name varchar(20), 
+employee_department_id int , 
+24.primary key(department_id) , 
+25.foreign key(employee_department_id) references employee_payroll(id) );
+
+26.desc employee_department;
+
+27.insert into employee_department (department_name , employee_department_id) values('hr', 2 ), ('test' , 3);
+28.select * from employee_department;
+29.select employee_payroll.name, employee_payroll.start_date ,
+ employee_department.department_name from employee_payroll 
+ inner join employee_department 
+ on employee_payroll.id = employee_department.employee_department_id ;
+ 
+30.select employee_payroll.name, employee_payroll.start_date ,
+ employee_department.department_name from employee_payroll 
+ left join employee_department 
+ on employee_payroll.id = employee_department.employee_department_id ;
+ 
+31.select employee_payroll.name, employee_payroll.start_date ,
+ employee_department.department_name from employee_payroll 
+ cross join employee_department ;
